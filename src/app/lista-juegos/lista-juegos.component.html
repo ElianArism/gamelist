@@ -1,0 +1,20 @@
+<div class="container content">
+    <div class="col-md-8 offset-md-3">
+        <form class="text-center border border-dark p-5  mt-2" action="#!">
+            <p>Ingrese la informacion del juego</p>
+            <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="nombre" #nombreJuego>
+            <textarea class="form-control mb-4"name="descripcion" id="" cols="80" rows="2" placeholder="breve descripcion" #descJuego></textarea>
+            <input type="text" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="direccion de la imagen" #imgJuego>
+            <button class="btn btn-info btn-block" type="submit" (click)="agregar(nombreJuego.value, descJuego.value, imgJuego.value)">Agregar Juego</button>
+        </form>
+    </div>
+    <hr>
+
+    <div class="row mb-3">
+        <ul class="list-group list-group-horizontal">
+            <li class="m-0 list-group-item" *ngFor="let juego of listJuegos" >
+                <app-juego [juego]="juego"></app-juego>
+            </li>
+        </ul>
+    </div>
+</div>
