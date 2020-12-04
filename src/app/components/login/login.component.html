@@ -1,0 +1,17 @@
+<form *ngIf="!this.authService.getUser()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" #username>
+    </div>
+    <div class="form-group">
+      <label for="password">Password: </label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1" #password>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="this.login(username.value, password.value)" >Submit</button>
+  </form>
+  <div class="container">
+    <p class="alert alert-black">{{ msg }}</p>
+  </div>
+  <div class="container">
+    <button class="btn btn-primary" (click)="this.logout()" *ngIf="authService.getUser()">Logout</button>
+  </div>

@@ -1,9 +1,14 @@
+<header class="w-100">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="navbar-nav">
+        <a class="nav-link" [routerLink]="['/home']">Home</a>
+        <a class="nav-link" [routerLink]="['/detalle']">Detalle Juego</a>
+      </div>
+  </nav>
+</header>
 <div class="container">
   <div class="row">
     <h1>{{ title }}</h1>  
   </div>
-  <app-lista-juegos></app-lista-juegos>
-
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>

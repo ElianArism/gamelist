@@ -1,0 +1,23 @@
+<form class="text-center border border-dark p-5  mt-2" [formGroup]="fg"
+    (ngSubmit)="guardar(fg.controls['nombre'].value, fg.controls['desc'].value, fg.controls['img'].value)">
+    <p>Ingrese la informacion del juego</p>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="defaultSubscriptionFormPassword" name="nombre"  id="nombre" class="form-control mb-4" placeholder="nombre" [formControl]="fg.controls['nombre']" autocomplete="off">
+        
+        <ul>
+            <li *ngFor="let juego of juegosBuscados">{{juego}}</li>
+        </ul>
+
+        <!-- validaciones -->
+        <div class="text text-danger" *ngIf="fg.controls['nombre'].hasError('nombreMinLong')">El nombre es demasiado corto.</div>
+        <div class="text text-danger" *ngIf="fg.controls['nombre'].hasError('required')">El nombre es requerido.</div>
+    </div>
+    
+    <textarea class="form-control mb-4"name="descripcion" id="" cols="80" rows="2" placeholder="breve descripcion" [formControl]="fg.controls['desc']"></textarea>
+    
+    <input type="text" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="direccion de la imagen" [formControl]="fg.controls['img']" autocomplete="off">
+    
+    <button class="btn btn-info btn-block" type="submit" *ngIf="fg.valid">Agregar Juego</button>
+</form>
+

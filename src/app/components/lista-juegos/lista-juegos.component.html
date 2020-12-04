@@ -1,0 +1,31 @@
+<div class="container content">
+    <div class="col-md-8 offset-md-3">
+        <app-form-juego (onJuegoAdded)="agregarNuevoJuego($event)"></app-form-juego>
+    </div>
+    <hr>
+    <div class="row mb-3">
+        <ul class="list-group list-group-horizontal">
+            
+            <li class="m-0 list-group-item" *ngFor="let juego of mostrarEstaticos()">
+                <div class="card" style="width: 18rem;">
+                    <img [src]="juego.img" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{juego.nombre}}</h5>
+                      <p class="card-text">Calificacion dada por: {{juego.dadaPor}}</p>
+                      
+                    </div>
+                  </div>
+            </li>
+
+            <li class="m-0 list-group-item" *ngFor="let juego of todosLosJuegos; let i = index; " >
+                <app-juego [juego]="juego" [index] ="i + 1" (clickeado)="juegoElegido($event)"></app-juego>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Actividad Reciente</h3>
+        <ul class="list list-group">
+            <li class="list list-group-item" *ngFor="let fav of actualizarJuegosFavoritos">{{fav}}</li>
+        </ul>
+    </div>
+</div>

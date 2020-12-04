@@ -1,0 +1,27 @@
+<div class="card" style="width: 18rem;">
+    <img [src]="juego.imgUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ juego.nombre }} nro: {{ posicion }}</h5>
+      <p class="card-text">{{ juego.desc }}</p>
+      <p>Caracteristicas: </p>
+      <ul>
+        <li *ngFor=" let caract of juego.caracteristicas "  >
+            <span [ngSwitch]="caract">
+              <i *ngSwitchCase="'2020'" style="color: chocolate;" >{{ caract }}</i>
+              <i *ngSwitchCase="'+18'" style="color: crimson;">{{ caract }}</i>
+              <i *ngSwitchDefault>{{caract}}</i>
+            </span>
+        </li>
+      </ul>
+      <br>
+      <div>
+        <a href="#" (click)="voteUp()"><i class="material-icons md-18">thumb_up</i></a>
+        <a href="#" (click)="voteDown()"><i class="material-icons md-18">thumb_down</i></a>
+        {{ juego.votes }}
+      </div>
+      <a href="#" class="btn btn-dark" (click)="ir()">Votar juego</a>
+      <span *ngIf="juego.Favorito">Este juego es tu favorito</span>
+      <br>
+      <a [routerLink]="['/detalle']" class="btn btn-light">Ir al detalle</a>
+    </div>
+</div>
